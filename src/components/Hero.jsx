@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
-import mayankImg from '../assets/img/mayank.png';
+import mayankImg from '../assets/img/mayank.webp';
 
 const Hero = () => {
   const [fontLoaded, setFontLoaded] = useState(false);
