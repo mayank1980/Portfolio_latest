@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Loader = ({ onComplete }) => {
+  // ONLY CHANGE: Adjusted the base text sizes (e.g., text-5xl instead of text-7xl) 
+  // and added 'sm:' breakpoints to prevent horizontal cut-offs on tiny mobile screens.
   const greetings = [
-    { text: "hello", style: "font-['Caveat',_cursive] text-7xl md:text-9xl font-normal lowercase tracking-normal" },
-    { text: "hola", style: "font-['Caveat',_cursive] text-7xl md:text-9xl font-normal lowercase tracking-normal" },
-    { text: "bonjour", style: "font-['Caveat',_cursive] text-7xl md:text-9xl font-normal lowercase tracking-normal" },
-    { text: "नमस्ते", style: "font-['Kalam',_cursive] text-6xl md:text-8xl font-normal tracking-normal" },
+    { text: "hello", style: "font-['Caveat',_cursive] text-6xl sm:text-7xl md:text-9xl font-normal lowercase tracking-normal" },
+    { text: "hola", style: "font-['Caveat',_cursive] text-6xl sm:text-7xl md:text-9xl font-normal lowercase tracking-normal" },
+    { text: "bonjour", style: "font-['Caveat',_cursive] text-6xl sm:text-7xl md:text-9xl font-normal lowercase tracking-normal" },
+    { text: "नमस्ते", style: "font-['Kalam',_cursive] text-5xl sm:text-6xl md:text-8xl font-normal tracking-normal" },
     { 
       text: "MAYANK MEHRA", 
-      style: "font-display font-medium tracking-[0.25em] uppercase text-3xl md:text-5xl lg:text-6xl text-white" 
+      // Lowered base text to 2xl and base tracking to 0.15em for small screens, scales up on sm and md
+      style: "font-display font-medium tracking-[0.15em] sm:tracking-[0.25em] uppercase text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-white" 
     }
   ];
 
@@ -56,14 +59,14 @@ const Loader = ({ onComplete }) => {
       `}</style>
 
       <motion.div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-[#09090b] text-white px-6 select-none overflow-hidden"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-[#09090b] text-white px-4 sm:px-6 select-none overflow-hidden"
         initial={{ opacity: 1 }}
         exit={{ 
           y: "-100%", 
           transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] } 
         }}
       >
-        <div className="relative flex items-center justify-center h-36 w-full max-w-5xl text-center">
+        <div className="relative flex items-center justify-center h-36 w-full max-w-5xl text-center overflow-hidden">
           {fontsLoaded && (
             /* mode="wait" ensures the old text is 100% removed before the new one renders */
             <AnimatePresence mode="wait">

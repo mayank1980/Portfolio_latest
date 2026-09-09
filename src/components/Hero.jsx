@@ -21,8 +21,9 @@ const Hero = () => {
     <section className="relative h-[100dvh] min-h-[550px] w-full bg-[#e2e4e7] overflow-hidden flex flex-col items-center justify-center">
       
       {/* 1. Seamless Infinite Marquee */}
+      {/* FIXED: Adjusted top positioning on mobile so it sits lower, behind the head */}
       <motion.div 
-        className="absolute top-[40%] sm:top-[42%] md:top-[45%] -translate-y-1/2 w-full flex whitespace-nowrap z-0 pointer-events-none overflow-hidden select-none"
+        className="absolute top-[48%] sm:top-[45%] md:top-[45%] -translate-y-1/2 w-full flex whitespace-nowrap z-0 pointer-events-none overflow-hidden select-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: fontLoaded ? 1 : 0 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
@@ -67,8 +68,9 @@ const Hero = () => {
       </motion.div>
 
       {/* 3. Center Cutout Image */}
+      {/* FIXED: Increased mobile height from h-[52vh] to h-[65vh] so the head reaches the text */}
       <motion.div 
-        className="absolute bottom-0 z-10 w-full flex justify-center h-[52vh] sm:h-[65vh] md:h-[85vh] max-h-[1100px] pointer-events-none"
+        className="absolute bottom-0 z-10 w-full flex justify-center h-[65vh] sm:h-[75vh] md:h-[85vh] max-h-[1100px] pointer-events-none"
         initial={{ y: "100%", opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.4, delay: 0.4, ease: [0.76, 0, 0.24, 1] }}
@@ -80,7 +82,6 @@ const Hero = () => {
         />
       </motion.div>
 
-      
     </section>
   );
 };
